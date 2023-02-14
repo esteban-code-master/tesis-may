@@ -1,0 +1,69 @@
+
+$width-progress: 6px;
+
+
+.progress{
+	position: relative;
+}
+
+.progress__animation{
+	position: absolute;
+}
+
+.progress__value{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 17px;
+	font-weight: bold;
+	color: #00AB55;
+}
+
+// :host ::ng-deep .progress__opacity circle {
+// 	stroke: rgba(237, 239, 241, 0.3);
+// 	stroke-width: $width-progress !important;
+// }
+
+// :host ::ng-deep .progress__animation circle {
+// 	stroke: #00AB55;
+// 	stroke-width: $width-progress !important;
+// 	stroke-linecap: round;
+// }
+
+
+:host ::ng-deep {
+	.progress__opacity circle {
+		stroke: rgba(237, 239, 241, 0.3);
+		stroke-width: $width-progress !important;
+	}
+
+
+
+	.progress--theme-yellow {
+		.progress__animation circle {
+			stroke: #FFAB00;
+		}
+
+		.progress__value{
+			color: #FFAB00;
+		}
+	}
+
+
+	.progress--theme-red {
+		.progress__animation circle {
+			stroke: #FF5630;
+		}
+		.progress__value{
+			color: #FF5630;
+		}
+	}
+
+	.progress__animation circle {
+		stroke-width: $width-progress !important;
+		stroke-linecap: round;
+		stroke: #00AB55;
+	}
+
+}

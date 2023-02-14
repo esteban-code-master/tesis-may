@@ -1,0 +1,24 @@
+<div class="u-cursor-pointer" routerLink="/report-detail/{{type}}" >
+	<mat-card class="card card--theme-green">
+		<mat-card-content>
+			<div
+				class="u-spinner-green flex justify-content-between align-item-center"
+			>
+				<img src = {{icon}} width="110" height="80" *ngIf="icon">
+				<ng-container *ngIf="!icon">
+					<app-progress [progress] = "progress" [themeSpinner]="themeSpinner" ></app-progress>
+				</ng-container>
+
+				<div class="card__text">
+					<span class="card__title">
+						{{ count | number }}
+					</span>
+					<span class="card__subtitle">
+						{{title}}
+					</span>
+				</div>
+			</div>
+		</mat-card-content>
+	</mat-card>
+</div>
+

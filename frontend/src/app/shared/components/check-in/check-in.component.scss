@@ -1,0 +1,64 @@
+.check-in{
+	position: relative;
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: #919eab33 0px 0px 2px 0px, #919eab1f 0px 12px 24px -4px !important;
+	span {
+		margin-right: 10px;
+	}
+	.absolute {
+		position: absolute;
+		right: 40px;
+		top: 30px;
+		font-weight: 600;
+	}
+	.user{
+		font-weight: 500;
+	}
+
+	.button{
+		outline: none;
+		padding: 10px;
+		color: white;
+		width: 300px;
+		margin-top: 20px;
+		border: none;
+		border-radius: 8px;
+		cursor: pointer;
+
+		&--active{
+			background: #34B233;
+		}
+
+		&--disabled{
+			background: #efeded;
+		}
+	}
+
+	.detail{
+		margin-top: 20px;
+		display: flex;
+		justify-content: space-between;
+	}
+
+}
+
+.prueba{
+	font-weight: 500;
+}
+
+.check-in__label{
+	font-size: 13px;
+}
+.check-in__title{
+	.name{
+		font-size: 25px;
+		margin-top: 10px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+	border-bottom: 1px solid rgb(190, 187, 187);
+	border-bottom-style:dashed;
+	padding-bottom: 30px;
+}

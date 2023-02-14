@@ -1,0 +1,27 @@
+<div class="map">
+	<app-maps-menu
+		(changePropsMaps) = "updateMaps($event)"
+		(changeMap) = "change_map($event)"
+		(initPropsMaps) = "initializeMaps($event)"
+	>
+	</app-maps-menu>
+
+	<div class="map__content" >
+		<ng-template [ngIf]="spinner">
+			<div class="map__spinner">
+				<mat-spinner class="map__spinner-icon"></mat-spinner>
+				<!-- <img src="../../../../../assets/icons/data/box-wrong-incorrect-cross-delivery-denied-deny-svgrepo-com (3).svg" width="100"> -->
+				<!-- <span>
+					Sin resultados
+					<span> Podria deberse a no tener ningun mapa asignado</span>
+				</span> -->
+			</div>
+		</ng-template>
+
+
+		<div #mapLoader class="map__scroll" [ngClass] = "{'u-display-none': firstMapLoad }" ></div>
+
+	</div>
+	<app-maps-zoom (changeZoom)="changeZoom($event)"></app-maps-zoom>
+	<app-maps-info-position></app-maps-info-position>
+</div>

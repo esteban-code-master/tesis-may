@@ -1,0 +1,25 @@
+<ng-container>
+	<mat-form-field class="autocomplete"  appearance="outline">
+		<mat-label>Buscar colaborador</mat-label>
+		<input
+			type="text"
+			class="autocomplete__input"
+			placeholder="escriba el nombre del colaborador"
+			aria-label="Number"
+			[matAutocomplete]="auto"
+			(keyup)="searchUser($event)"
+			matInput
+			spellcheck="false"
+		>
+		<mat-icon matSuffix>search</mat-icon>
+		<mat-autocomplete #auto="matAutocomplete">
+			<mat-option
+				*ngFor="let user of user_list"
+				[value]="user.full_name"
+				(click)="selectUser(user)"
+			>
+				{{user.full_name}}
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+</ng-container>

@@ -1,0 +1,59 @@
+<ng-container>
+	<div class="login">
+		<div class="login-card">
+			<div class="login-banner">
+				INICIO DE SESION
+			</div>
+			<div class="login-form">
+				<p>INGRESA TUS DATOS PARA CONTINUAR.</p>
+
+				<mat-form-field appearance="outline">
+					<mat-label>Ingresa tu usuario</mat-label>
+					<input matInput  required [(ngModel)] = "user.username">
+					<mat-icon matSuffix mat-icon>people</mat-icon>
+					<mat-error>
+						Email is <strong>required</strong>
+					</mat-error>
+				</mat-form-field>
+
+
+
+				<mat-form-field appearance="outline">
+					<mat-label>Ingresa tu contraseña</mat-label>
+					<input
+						matInput [type]="show_password ? 'password' : 'text'"
+						[(ngModel)] = "user.password"
+						required
+					>
+					<button
+						mat-icon-button
+						matSuffix (click)="show_password = !show_password"
+						[attr.aria-label]="'Hide password'"
+						[attr.aria-pressed]="show_password"
+					>
+						<mat-icon	mat-icon>{{show_password ? 'visibility_off' : 'visibility'}}</mat-icon>
+					</button>
+
+					<mat-error>
+						Email is <strong>required</strong>
+					</mat-error>
+				</mat-form-field>
+
+				<button
+					mat-flat-button
+					(click)="authentication()"
+					class="login-button"
+					[disabled]="user.username === '' && user.password === '' || loading"
+					[ngClass]="{
+						'login-button--active': user.username !== '' && user.password !== '' && !loading
+					}"
+				>
+					<div class="flex">
+						<mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+						<span class="login-button-text">Ingresar</span>
+					</div>
+				</button>
+			</div>
+		</div>
+	</div>
+</ng-container>

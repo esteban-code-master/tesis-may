@@ -1,0 +1,78 @@
+<ng-container>
+	<div  [ngClass]="{'u-display-none': calendar_mode !== '@mode/ranger' }">
+		<mat-form-field appearance="outline"  (click)="picker_ranger.open()">
+			<mat-label>{{label}}</mat-label>
+			<mat-date-range-input
+				[rangePicker]="picker_ranger"
+				[min] = "today"
+				[dateFilter]="dateFilter"
+			>
+				<input
+					[disabled]="disabled"
+					matStartDate
+					placeholder="fecha de inicio"
+					[(ngModel)]="date_start"
+					readonly
+				>
+				<input
+					[disabled]="disabled"
+					matEndDate
+					placeholder="fecha final"
+					[(ngModel)]="date_end"
+					readonly
+				>
+			</mat-date-range-input>
+			<mat-datepicker-toggle matIconSuffix [for]="picker_ranger"></mat-datepicker-toggle>
+			<mat-date-range-picker #picker_ranger [dateClass]="dateClass">
+				<mat-date-range-picker-actions>
+					<button mat-button matDateRangePickerCancel>Cancel</button>
+					<button
+						mat-raised-button
+						color="primary"
+						matDateRangePickerApply
+						(click) ="saveDate()"
+					>
+						Filtrar
+					</button>
+				</mat-date-range-picker-actions>
+			</mat-date-range-picker>
+		</mat-form-field>
+	</div>
+
+	<div [ngClass]="{'u-display-none': calendar_mode !== '@mode/basic' }">
+		<mat-form-field
+			appearance="outline"
+			(click)="picker_ranger.open(); calendar_mode = '@mode/ranger'"
+		>
+			<mat-label>{{label}}</mat-label>
+			<input
+				matInput
+				placeholder="selecciona tu fecha"
+				[matDatepicker]="picker"
+				[disabled]="disabled"
+				[min] = "today"
+				[(ngModel)]="date_start"
+				readonly
+			>
+			<mat-datepicker-toggle
+				matIconSuffix [for]="picker_ranger"
+				(click)="picker_ranger.open(); calendar_mode = '@mode/ranger'"
+			>
+			</mat-datepicker-toggle>
+			<mat-datepicker #picker>
+				<mat-date-range-picker-actions>
+					<button mat-button matDateRangePickerCancel>Cancel</button>
+					<button
+						mat-raised-button
+						color="primary"
+						matDateRangePickerApply
+						(click) ="saveDate()"
+					>
+						Filtrar
+					</button>
+				</mat-date-range-picker-actions>
+			</mat-datepicker>
+		</mat-form-field>
+	</div>
+
+</ng-container>

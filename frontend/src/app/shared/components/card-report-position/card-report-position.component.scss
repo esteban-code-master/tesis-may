@@ -1,0 +1,31 @@
+@import "../../../../styles/settings/themes.scss";
+
+.card{
+	min-width: 250px;
+	box-shadow: $theme-shadow-opacity;
+	transition: transform 0.3s ease-in-out;
+	border-radius: 10px !important;
+	&:hover{
+		transform: scale(1.03);
+		transition: transform 0.3s ease-in-out;
+	}
+}
+.card__text{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 10px;
+	margin-left: 40px;
+}
+.card__title{
+	font-size: 32px;
+	font-weight: 500;
+}
+.card__subtitle{
+	margin: 0px;
+    line-height: 1.57143;
+    font-size: 12px;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    opacity: 0.72;
+}

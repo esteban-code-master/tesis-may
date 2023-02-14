@@ -1,0 +1,69 @@
+<ng-container>
+	<div style="display: flex;gap: 20px; flex-direction: column;">
+		<ng-container *ngFor="let item of data">
+			<div class="check-in">
+				<div>
+					<div>
+						<div class="check-in__label">Lugar reservado</div>
+						<div class="check-in__title">
+							<div class="name">
+								{{ item.booking_position }}
+							</div>
+							<div>
+								<div class="check-in__label">colaborador</div>
+								<div class="user">
+									{{ item.full_name  | uppercase }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="absolute">
+						{{ item.date_start }}
+					</div>
+				</div>
+				<div class="detail">
+					<div>
+						<div>
+							<span class ="check-in__label" style="width: 200px;">Unidad de negocio:</span>
+							<span > {{ item.booking_business_unit }}</span>
+						</div>
+
+						<div>
+							<span class="check-in__label"  style="width: 200px;">Area:</span>
+							<span>{{ item.booking_area | lowercase }}</span>
+						</div>
+
+						<div>
+							<span class="check-in__label"  style="width: 200px;">Piso:</span>
+							<span>{{ item.booking_piso }}</span>
+						</div>
+					</div>
+					<div>
+						<div class="check-in__label" style="margin-bottom: 10px;">Recursos</div>
+						<div style=" display: flex; flex-wrap: wrap; gap: 5px;">
+							<ng-container *ngFor="let resource of item.resource">
+								<div class="flex">
+									<img width="20" src="https://img.icons8.com/fluency/48/null/ok.png" style="margin-right: 10px;"/>
+									<span>{{ resource.name }}</span>
+								</div>
+							</ng-container>
+						</div>
+					</div>
+				</div>
+
+				<button
+					mat-button
+					class="button"
+					[ngClass]="{
+						'button--active': item.date_start === date_now,
+						'button--disabled': ! (item.date_start === date_now)
+					}"
+					[disabled]= "!(item.date_start === date_now)"
+					(click)="set_check_in(item.reservation_id)"
+				>
+					check-in
+				</button>
+			</div>
+		</ng-container>
+	</div>
+</ng-container>

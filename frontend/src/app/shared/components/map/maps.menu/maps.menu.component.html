@@ -1,0 +1,110 @@
+<div class = "map-menu flex align-item-center justify-content-between">
+  	<div class="map-menu__date-button">
+		<button
+			mat-icon-button
+			aria-label="previous dates of calendar"
+			(click)="PreviousDate()"
+			matTooltip="anterior fecha"
+			matTooltipPosition="above"
+		>
+			<mat-icon fontIcon="keyboard_arrow_left"></mat-icon>
+		</button>
+
+		<button
+			mat-icon-button
+			matTooltip="abrir calendario"
+			matTooltipPosition="above"
+			(click)="isOpenCalendar = !isOpenCalendar"
+		>
+			<img
+				mat-icon
+				src = "../../../../../assets/icons/generic/calendar.svg"
+				alt = "calendar icon"
+			/>
+
+		</button>
+
+		<button
+			mat-icon-button
+			aria-label="next dates of calendar"
+			(click)="NextDate()"
+			matTooltip="siguiente fecha"
+			matTooltipPosition="above"
+		>
+			<mat-icon fontIcon="keyboard_arrow_right"></mat-icon>
+		</button>
+
+		<div class="map__menu-calendar" [ngClass]="{'u-display-none': !isOpenCalendar }">
+
+
+			<mat-calendar
+				#calendar
+				[selected]="selectedRangeValue"
+				(selectedChange)="selectedChange($event)"
+			>
+			</mat-calendar>
+			<div class="map__menu-calendar-button">
+				<button mat-flat-button (click)="closeCalendar()"> cancelar </button>
+				<button mat-flat-button color="primary" (click)="saveDate()"> consultar </button>
+			</div>
+		</div>
+	</div>
+
+	<div class = "map-menu__date-text">
+		<span>
+			{{ maps_configuration.date.first_date | momentFormat: "dddd, D MMMM"  }}
+		</span>
+		<span class="maps-ranger-text" *ngIf="isOpenRangerDate">
+			a
+		</span>
+		<span *ngIf="isOpenRangerDate">
+			{{ maps_configuration.date.second_date | momentFormat: "dddd, D MMMM" }}
+		</span>
+	</div>
+
+  	<div class="flex" style="flex-wrap: wrap;">
+		<div class="c-position-relative m-right-40" >
+			<mat-chip
+				color="none"
+				(click) = "maps_configuration.views.isOpenLocation = !maps_configuration.views.isOpenLocation"
+				matTooltip="ver Ubicaciones"
+				matTooltipPosition="above"
+			>
+				Ubicaciones
+				<img matChipAvatar src="https://img.icons8.com/material/24/null/near-me--v1.png" alt="Photo of a Shiba Inu"/>
+			</mat-chip>
+
+			<div class="maps-menu__options" *ngIf="maps_configuration.views.isOpenLocation">
+				<button
+					mat-button
+					class="maps-menu__button"
+					*ngFor="let item of maps_configuration.location"
+					(click)="changeLocation(item.id || 0)"
+				>
+					{{item.name}}
+				</button>
+			</div>
+		</div>
+		<div class="c-position-relative">
+			<mat-chip
+				color="none"
+				matTooltip="ver pisos"
+				matTooltipPosition="above"
+				(click) = "maps_configuration.views.isOpenPisos = (!maps_configuration.views.isOpenPisos && maps_configuration.select?.pisos !== null)"
+			>
+				Pisos
+				<img matChipAvatar src="https://img.icons8.com/sf-black-filled/64/null/city-buildings.png" alt="Photo of a Shiba Inu"/>
+			</mat-chip>
+			<div class="maps-menu__options" *ngIf="maps_configuration.views.isOpenPisos">
+				<button
+					mat-button
+					class="maps-menu__button"
+					*ngFor="let item of maps_configuration.select?.pisos"
+					(click)="changePisos(item.name_map || '')"
+				>
+					{{item.name}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

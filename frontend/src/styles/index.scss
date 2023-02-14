@@ -1,0 +1,30 @@
+@import url(./components/index.scss);
+@import url(./utilities/index.scss);
+
+body{
+	color: rgb(99, 115, 129)
+}
+
+[hidden] {
+	display: none !important;
+}
+.mat-calendar-body-label{
+	visibility: hidden !important;
+	border: none !important;
+}
+
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading{
+	--mdc-shape-small: 8px !important;
+}
+.mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing{
+	--mdc-shape-small: 8px !important;
+}
+
+button.example-custom-date-class {
+	background: orange !important;
+	border-radius: 100%;
+}
+.mdc-snackbar__surface:has(.message){
+	background-color: #26ab6d !important;
+	font-weight: bold;
+}

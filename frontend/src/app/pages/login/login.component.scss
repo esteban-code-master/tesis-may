@@ -1,0 +1,49 @@
+.login {
+	background: #F2F5F9;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-card {
+	background: white;
+	box-shadow: rgb(159 162 191 / 18%) 0px 9px 16px, rgb(159 162 191 / 32%) 0px 2px 2px;
+	border-radius: 8px;
+	width: 90%;
+	max-width: 400px;
+}
+
+.login-banner{
+	background: #3A3F51;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	padding: 15px 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.login-form{
+	padding: 30px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	text-align: center;
+}
+
+:host ::ng-deep {
+	.login-button {
+		padding: 10px auto !important;
+		color: white !important;
+		display: flex !important;
+		flex-direction: row !important;
+		background: #d8d6d66a !important;
+	}
+	.login-button--active {
+		background: #A04140 !important;
+	}
+	.login-button-text{
+		margin-left: 15px;
+	}
+}

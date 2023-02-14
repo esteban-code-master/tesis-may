@@ -1,0 +1,12 @@
+<ng-container>
+	<mat-form-field appearance = "outline" class = "w-100">
+		<mat-label>Tipo de jornada</mat-label>
+		<mat-select [(ngModel)]="typeWorkingDayId" name="food">
+			<mat-option value="7">Jornada completa</mat-option>
+			<mat-option value="8">Jornada Matutina</mat-option>
+			<mat-option value="9">Jornada Vespertina</mat-option>
+		</mat-select>
+	</mat-form-field>
+
+	<app-datepicker-ranger [label]="name"></app-datepicker-ranger>
+</ng-container>

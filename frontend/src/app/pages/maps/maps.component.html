@@ -1,0 +1,21 @@
+<ng-container>
+	<div class="title">
+		Formulario
+	</div>
+
+	<div
+		*ngFor="let item of data"
+		class="question"
+	>
+		<div class="image">
+			<img src="https://img.icons8.com/emoji/48/null/beaming-face-with-smiling-eyes.png"/>
+		</div>
+		<div class="question-container">
+			<p>{{ item.question }}</p>
+			<input (keyup)="insert_answer($event,item.id)" placeholder="comparte lo que piensas...">
+		</div>
+	</div>
+
+	<button (click)="save_answer()">Guardar</button>
+
+</ng-container>

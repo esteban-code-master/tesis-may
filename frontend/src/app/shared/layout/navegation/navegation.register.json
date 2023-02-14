@@ -1,0 +1,34 @@
+{
+	"menu": [
+		{
+			"name": "Mapas",
+			"icon": "location.svg",
+			"route": "/",
+			"roles": [1,2,3]
+		},
+		{
+			"name": "Mi Agenda",
+			"icon": "travel.svg",
+			"route": "/mis-reservas",
+			"roles": [1,2,3]
+		},
+		{
+			"name": "Compañeros",
+			"icon": "team.svg",
+			"route": "/friends",
+			"roles": [1,2,3]
+		},
+		{
+			"name": "Administración",
+			"icon": "admin.svg",
+			"route": "/admin",
+			"roles": [1,2]
+		},
+		{
+			"name": "Reportes",
+			"icon": "report.svg",
+			"route": "/reports",
+			"roles": [1,2]
+		}
+	]
+}

@@ -1,0 +1,23 @@
+<ng-container>
+	<div class="title">
+		Respuestas
+	</div>
+
+	<div
+		*ngFor="let item of data"
+		class="question"
+	>
+		<div class="image">
+			<img src="https://img.icons8.com/emoji/48/null/beaming-face-with-smiling-eyes.png"/>
+		</div>
+		<div class="question-container">
+			<p>{{ item.question }}</p>
+			<input (keyup)="insert_answer($event,item.id)" [value]="item.answer" readonly>
+		</div>
+		<div class="buttons-group">
+			<!-- <button>Descargar</button> -->
+			<button (click)="delete_answer(item.id_answer)" class="button2">Eliminar</button>
+		</div>
+	</div>
+	<button (click)="generate_file()">Descargar</button>
+</ng-container>

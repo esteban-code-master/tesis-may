@@ -1,0 +1,75 @@
+<div class="modal">
+	<h2 mat-dialog-title>Crear una nueva reserva</h2>
+	<mat-dialog-content class="mat-typography">
+		<mat-checkbox
+			[(ngModel)]="is_multiple_working_day"
+			(change) = "changesWorkingDay($event)"
+			class="u-m-bottom-20"
+		>
+			Seleccione para reservar mas de una jornada
+		</mat-checkbox>
+
+		<div>
+			<div class="form">
+				<mat-form-field appearance="outline"  class="u-m-bottom-20">
+					<mat-label>Lugar seleccionado</mat-label>
+					<input matInput placeholder="Placeholder" [value]="reservation.position" readonly>
+				</mat-form-field>
+
+				<mat-form-field appearance = "outline" class = "w-100 u-m-bottom-20">
+					<mat-label>Tipo de jornada</mat-label>
+					<mat-select
+						[(value)]="select_working_day"
+						(selectionChange)="change_working_day($event)"
+						name="working"
+						disabled= {{is_multiple_working_day}}
+					>
+						<mat-option value="JRNDFULL">Jornada completa</mat-option>
+						<mat-option value="JRNDMTN">Jornada Matutina</mat-option>
+						<mat-option value="JRNDVPT">Jornada Vespertina</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<app-datepicker-ranger
+				*ngIf="!is_multiple_working_day"
+				(selectDate)="selectDate( $event, select_working_day || 'none')"
+				[dateFilter] = "filter_working_miltiple"
+				[dateClass]="dateClass"
+				label = "seleccione su fecha"
+				[disabled] = "false"
+			>
+			</app-datepicker-ranger>
+
+			<app-datepicker-ranger
+				*ngIf="is_multiple_working_day"
+				(selectDate)="selectDate($event, 'JRNDFULL')"
+				label = "fecha para jornada completa"
+				[disabled] = "false"
+				[dateFilter] = "filter_working_fullday"
+			>
+			</app-datepicker-ranger>
+
+			<app-datepicker-ranger
+				*ngIf="is_multiple_working_day"
+				(selectDate)="selectDate($event,'JRNDMTN')"
+				label = "fecha para jornada matutina"
+				[disabled] = "false"
+				[dateFilter] = "filter_working_morning"
+			>
+			</app-datepicker-ranger>
+
+			<app-datepicker-ranger
+				*ngIf="is_multiple_working_day"
+				(selectDate)="selectDate($event,'JRNDVPT')"
+				label = "fecha para jornada vespertina"
+				[disabled] = "false"
+				[dateFilter] = "filter_working_afternoon"
+			>
+			</app-datepicker-ranger>
+		</div>
+	</mat-dialog-content>
+	<mat-dialog-actions align="end">
+		<button mat-button mat-dialog-close>Cancel</button>
+		<button mat-raised-button color="accent" (click)="save_reservation()">Guardar</button>
+	</mat-dialog-actions>
+</div>

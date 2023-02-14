@@ -1,0 +1,35 @@
+<div class="map-info-position" *ngIf="isOpenInfoPosition">
+  <div class="map-info-position-menu">
+    <div class="info-title">
+      <mat-icon matListItemIcon>business</mat-icon>
+      <h3>Lo que ofrece el lugar {{ position_name }}</h3>
+      <div class="close" (click)="togglePositionInfo()">
+        <mat-icon matListItemIcon >close</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-info-position-content">
+    <mat-list>
+      <mat-chip-listbox aria-label="Dog selection" style="margin-bottom: 20px;">
+        <mat-chip>
+          <img matChipAvatar src="https://img.icons8.com/fluency/48/null/ok.png"/>
+          Computadora
+        </mat-chip>
+        <mat-chip color="primary">
+          <img matChipAvatar src="https://img.icons8.com/fluency/48/null/ok.png"/>
+          Contactos
+        </mat-chip>
+        <mat-chip color="accent">
+          <img matChipAvatar src="https://img.icons8.com/fluency/48/null/ok.png"/>
+          Sillas
+        </mat-chip>
+        <mat-chip color="accent">
+          <img matChipAvatar src="https://img.icons8.com/fluency/48/null/ok.png"/>
+          Mesas
+        </mat-chip>
+      </mat-chip-listbox>
+      <button routerLink="/reservation/{{position}}"   class="button-available">Ver disponibilidad</button>
+    </mat-list>
+  </div>
+</div>

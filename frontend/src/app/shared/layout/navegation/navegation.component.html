@@ -1,0 +1,23 @@
+<mat-sidenav-container class = "sidenav">
+
+
+	<mat-sidenav-content >
+		<mat-toolbar class = "toolbar">
+			<button
+				type="button"
+				aria-label="Toggle sidenav"
+				mat-icon-button
+			>
+				<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+			</button>
+			<button mat-icon-button class="close-session" (click)="close_session()">
+				<mat-icon color="primary">logout</mat-icon>
+			</button>
+		</mat-toolbar>
+
+		<!-- Add Content Here -->
+		<div class = "content">
+			<ng-content></ng-content>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

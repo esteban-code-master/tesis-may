@@ -1,0 +1,17 @@
+{
+	"JRNDFULL": {
+		"name": "JORNADA COMPLETA",
+		"className": "map-position--not-available",
+		"fullDay": true
+	},
+	"JRNDVPT": {
+		"name": "JORNADA VESPERTINA",
+		"className": "map-position--afternoon",
+		"fullDay": false
+	},
+	"JRNDMTN": {
+		"name": "JORNADA MATUTINA",
+		"className": "map-position--morning",
+		"fullDay": false
+	}
+}

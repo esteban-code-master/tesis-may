@@ -1,0 +1,47 @@
+.step{
+	border: 1px solid rgba(196, 193, 193, 0.615);
+	border-radius: 8px;
+	margin-top: 20px;
+}
+
+
+.step__content {
+	margin-top: 20px;
+	display: flex;
+}
+
+.form{
+	display: flex;
+	gap: 20px;
+}
+
+:host ::ng-deep {
+
+	.mat-mdc-form-field{
+		width: 100% !important;
+		margin-bottom: 20px;
+	}
+
+	button.example-custom-date-class {
+		background: orange !important;
+		border-radius: 100%;
+	}
+
+	button.example-custom-date-class-1 {
+		background: rgb(15, 11, 3) !important;
+		border-radius: 100%;
+	}
+
+}
+
+
+
+button.example-custom-date-class {
+	background: orange !important;
+	border-radius: 100%;
+}
+
+button.example-custom-date-class-1 {
+	background: rgb(15, 11, 3) !important;
+	border-radius: 100%;
+}
